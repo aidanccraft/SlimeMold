@@ -5,6 +5,12 @@
 #include "main/FPSManager.h"
 #include "main/Handler.h"
 
+#ifdef _DEBUG
+bool showFPS = true;
+#else
+bool showFPS = false;
+#endif
+
 void cycle(WindowManager* win_mgr, RenderManager* renderer, Handler* handler) {
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -30,7 +36,7 @@ int main(void) {
     }
 
     RenderManager* renderer = new RenderManager(win_mgr);
-    FPSManager* fps_mgr = new FPSManager(60, true);
+    FPSManager* fps_mgr = new FPSManager(60, showFPS);
     Handler* handler = new Handler(win_mgr, renderer);
 
     renderer->gui->initGUI(win_mgr->getWindow());

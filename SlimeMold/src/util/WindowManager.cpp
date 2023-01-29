@@ -5,7 +5,6 @@
 
 WindowManager::WindowManager() {
 	createWindow();
-	std::cout << "Init Window Manager" << std::endl;
 	for (int i = 0; i < GLFW_KEY_LAST; i++) {
 		keys[i] = false;
 	}
